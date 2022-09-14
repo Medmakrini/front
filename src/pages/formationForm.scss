@@ -1,0 +1,130 @@
+@import '../index.scss';
+
+.formation-form{
+    @include flex-column;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    padding: 5% 0;
+    
+    &__container{
+        @include flex-row;
+        width: 100%;
+        gap: 50px;
+
+        &__img{
+            width: 40%;
+            max-width: 30rem;
+        }
+
+
+        &__pack{
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap:10px;
+
+
+
+            &__heading{
+                font-size: 24px;
+            }
+
+            &__sub-heading{
+                font-size: 12px;
+            }
+           
+        }
+    }
+
+    &__choices{
+        @include flex-row;
+        gap: 50px;
+        margin-top: 100px;
+        &__choice{
+
+            border-radius: 1rem;
+            background-color: rgb(172, 165, 165);
+            position: relative;
+
+            & img{
+                width: 90px;
+            }
+
+            & div{
+                border-radius: 100%;
+                background-color: rgb(136, 211, 136);
+                padding: 5px;
+                top: 0;
+                right: 0;
+                width: fit-content;
+                position: absolute;
+                transform: translate(5px, -5px)
+            }
+        }
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        width: 100%;
+        
+
+        .input-box{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        
+    }
+
+    &__final{
+            
+        &__checkbox{
+            @include flex-row;
+            gap: 10%;
+            & div{
+                @include flex-row;
+            }
+        }
+    }
+
+    button{
+        background-color: var(--color-bg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:10px;
+        box-sizing: border-box;
+        width: 80px;
+        height: 35px;
+        border: 1px solid #FF6333;
+        border-radius: 41px;
+        font-family: var(--font-family);
+        font-size: 12px;
+        line-height: 12px;
+        color: #FF6333;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+        margin: 0 auto;
+    }
+
+    button:hover{
+        background-color: #2e2d2e;
+    }
+
+    & button:disabled{
+        color: #524f4e;
+    }
+
+    
+}
+
+.package{
+    margin: 100px auto 10px auto;
+}

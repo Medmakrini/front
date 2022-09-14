@@ -1,0 +1,184 @@
+.post-card{
+    width: 500px;
+    height: 300px;
+    position: relative;
+    overflow:hidden;
+    
+
+
+    &__layer{
+        background-color: rgba(0, 0, 0, .7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        width: 500px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & svg {
+            & text{
+                font-size: 100px;
+            }
+            
+        }
+
+    }
+
+    & img{
+        position: absolute;
+        clip: rect(0 , 500px, 300px, 0);
+        width: 500px;
+    }
+
+   
+
+    &__sub-heading{
+        position: absolute;
+        bottom:0;
+        width:0px;
+        overflow:hidden;
+
+        & span{
+            margin-left:-500px;
+            font-size: 20px;
+            
+        }
+        font-family: 'Rubik', sans-serif;
+        color: rgb(222, 215, 215);
+    }
+    cursor: pointer;
+}
+
+.post-card__layer:hover > svg > text{
+    animation: stroke 1s forwards alternate;
+}
+
+.post-card:hover >.post-card__sub-heading > span{
+    animation: slidein 1.8s forwards;
+}
+
+.post-card:hover > .post-card__sub-heading{
+    animation: reveal 1.8s forwards;
+}
+
+.post-card:hover > .post-card__layer{
+    animation: shine .7s forwards;
+}
+
+.post-card:hover {
+    animation: grow .7s forwards;
+    z-index: 1;
+}
+
+
+@media (max-width: 1050px) {
+    .post-card{
+        width: 400px;
+        height: 230px;
+        
+        &__layer{
+            width: 400px;
+            height: 230px;
+            & svg {
+                & text{
+                    font-size: 80px;
+                }
+                
+            }
+    
+        }
+    
+        & img{
+            clip: rect(0 , 400px, 230px, 0);
+            width: 400px;
+        }
+    
+       
+    
+        &__sub-heading{
+    
+            & span{
+                margin-left:-400px;
+                font-size: 14px;
+                
+            }
+        }
+    }
+}
+
+
+@media (max-width: 800px) {
+    .post-card{
+        width: 300px;
+        height: 200px;
+        
+        &__layer{
+            width: 300px;
+            height: 200px;
+            & svg {
+                & text{
+                    font-size: 80px;
+                }
+                
+            }
+    
+        }
+    
+        & img{
+            clip: rect(0 , 300px, 200px, 0);
+            width: 300px;
+        }
+    
+       
+    
+        &__sub-heading{
+    
+            & span{
+                margin-left:-300px;
+                font-size: 14px;
+                
+            }
+        }
+    }
+}
+
+
+
+
+
+@keyframes stroke {
+    100%   {
+      fill: rgba(72,138,20,0); stroke: rgba(54,95,160,1);
+      stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+    }
+    80%  {fill: rgba(72,138,20,0); stroke: rgba(54,95,160,1); }
+    40%  {fill: rgba(72,138,20,0); stroke: rgba(54,95,160,1); stroke-width: 3; }
+    0% {
+      fill: rgba(72,138,204,1); stroke: rgba(54,95,160,0); 
+      stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+    }
+}
+
+@keyframes slidein {
+    0% { margin-left:-800px; }
+    100% { margin-left:0px; }
+}
+
+@keyframes reveal {
+    0% {opacity:0;width:0px;}
+    100% {opacity:1;width:100%;}
+}
+
+@keyframes shine {
+    from{background-color: rgba(0, 0, 0, .7);}
+    to{background-color: rgba(0, 0, 0, .5);}
+}
+
+@keyframes grow {
+    from{transform: scale(1);}
+    to{transform: scale(1.1);}
+}

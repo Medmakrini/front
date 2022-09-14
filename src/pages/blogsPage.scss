@@ -1,0 +1,106 @@
+.blogs-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    gap: 100px;
+
+    &__filters{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 20px;
+        padding: 0 5%;
+        & a{
+            background-color: var(--color-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap:10px;
+            box-sizing: border-box;
+            width: 100px;
+            height: 44px;
+            border: 1px solid #FF6333;
+            border-radius: 41px;
+            font-family: var(--font-family);
+            font-size: 12px;
+            line-height: 12px;
+            color: #FF6333;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+        }
+
+        & a:hover{
+            background-color: #2e2d2e;
+        }
+
+        & input{
+            background-color: var(--color-bg);
+            border-top:none;
+            border-right: none;
+            border-left: none;
+            border-bottom: solid;
+            border-color: #696969;
+            border-width: 1px;
+            outline: none;
+            color: #FFFFFF;
+        }
+    }
+    
+    &__main{
+        display: flex;
+        flex-wrap: wrap;
+        height: fit-content;
+        justify-content: center;
+        align-items: center;
+        gap : 20px;
+        
+    }
+
+    &__pagination{
+
+        & ul{
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+
+            & li{
+                display: inline;
+                color: #fff;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+.selected{
+    border-radius: 5px;
+    background-color: #4CAF50;
+}
+
+
+
+@media (max-width: 800px) {
+    .blogs-page{
+
+        &__pagination{
+
+            & ul{
+    
+                & li{
+                    display: inline;
+                    color: #fff;
+                    float: left;
+                    padding: 6px 12px;
+                    text-decoration: none;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}

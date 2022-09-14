@@ -1,0 +1,96 @@
+.dev-screen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    bottom: 50px;
+    right: 10px;
+}
+
+
+.dev-screen .member{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    &__img{
+        width: 50px;
+        border-radius: 100%;
+
+        
+    }
+
+    &__info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        
+
+        & div{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+
+        }
+
+        &__name{
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 27px;
+            text-indent: 2px;
+            font-feature-settings: 'liga' off;
+        }
+
+        &__role{
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 27px;
+            text-indent: 2px;
+            font-feature-settings: 'liga' off;
+            color:rgb(175, 177, 182);
+        }
+
+
+        &__message-icon:hover{
+            animation: grow-up .5s  forwards;
+            cursor: pointer;
+        }
+
+        &__message-icon{
+            height: 40px;
+            width:30px;
+
+            & svg{
+                width: 30px;
+                
+            }
+        }
+
+        
+    }
+
+
+}
+
+.dev-screen .contact-member__heading{
+    display: none;
+}
+
+
+@media (max-width: 900px) {
+    .dev-screen{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        position: relative;
+        transform: translateY(50px);
+    }
+}
