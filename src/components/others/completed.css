@@ -31,8 +31,15 @@
     color: #FF6333;
     cursor: pointer;
     transition: all 0.3s ease 0s;
+
 }
 
 .completed a:hover{
     background-color: #2e2d2e;
+}
+
+@media (max-width: 800px) {
+    .completed{
+        font-size: 12px;
+    }
 }

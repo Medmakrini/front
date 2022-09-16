@@ -56,23 +56,26 @@ class JoinFrom extends Form {
 
         const password1=`${this.state.data.lastName}_${Math.floor(Math.random() * 500)}_${this.state.data.firstName}`
         const username=this.state.data.lastName.split(' ').join('_')+Math.floor(Math.random() * 500)
-        let responseStatus;
         const loading = 1;
         this.setState({loading});
         await this.props.register({ variables: { email:this.state.data.email , username:username,firstName:this.state.data.firstName ,lastName:this.state.data.lastName,phone:this.state.data.phone ,password1:password1,password2:password1,psw:password1 , cell:this.state.data.cell,day:this.state.data.day,year:this.state.data.year}})  
         .then(res=>{
-            responseStatus = (res.data.register.errors === null) ? "success":"failed";
+            const responseStatus = (res.data.register.errors === null) ? "success":"failed";
+            const condition = (res.data.register.errors && res.data.register.errors.email[0].message === 'A user with that email already exists.') ? true: false;
+            if(responseStatus=="failed"){
+                if(condition){
+                    let errors = this.state.errors;
+                    errors['email'] = 'E-mail is already used.';
+                    const loading = 0;
+                    this.setState({errors, loading});
+                }
+                else{
+                    this.props.navigate('/completed/failed', {replase: true});
+                }
+            } else if(responseStatus=='success'){
             const {place, hour} = this.state;
             const {day} = this.state.data;
-            const condition = false
-            console.log(responseStatus)
-            console.log(res)
-            if(responseStatus=="failed"){
-                let errors = this.state.errors;
-                errors['email'] = 'E-mail is already used';
-            } else if(responseStatus=='success'){
-            this.props.navigate("approved", {replace: true});
-           // this.props.navigate(`/completed/${responseStatus}/${day}/${place}/${hour}`, {replace: true});
+            this.props.navigate(`/completed/success/${day}/${place}/${hour}`, {replace: true});
             }
         })
               

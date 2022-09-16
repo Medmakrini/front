@@ -1,47 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap");
+.spinner .loading {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border: 3px solid rgba(255,255,255,.3);
+	border-radius: 50%;
+	border-top-color: #FF6333;
+	animation: spin 1s ease-in-out infinite;
+	-webkit-animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+	to { -webkit-transform: rotate(360deg); }
+  }
+  @-webkit-keyframes spin {
+	to { -webkit-transform: rotate(360deg); }
+  }
 
-
-
-
-
-.spinner {
+.spinner{
+	height: 100px;
 	display: flex;
 	justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-}
-
-.spinner svg {
-	width: 50%;
-	max-width: 10rem;
-	animation: rotate 3.6s linear infinite;
-}
-
-.spinner svg circle {
-	fill: none;
-	stroke: #FF6333;
-	stroke-width: 2px;
-	stroke-dasharray: 300;
-	animation: outline 2s cubic-bezier(0.77, 0, 0.18, 1) infinite;
-}
-
-@keyframes outline {
-	0% {
-		stroke-dashoffset: 0;
-	}
-	50% {
-		stroke-dashoffset: 300;
-	}
-	100% {
-		stroke-dashoffset: 600;
-	}
-}
-
-@keyframes rotate {
-	from {
-		transform: rotate(0turn);
-	}
-	to {
-		transform: rotate(-1turn);
-	}
+	align-items: center;
 }

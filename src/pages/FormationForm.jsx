@@ -64,17 +64,13 @@ class FormationForm extends Form {
         //call back end
         await this.props.AddFormation({ variables: { email:data.email ,firstName:data.firstName ,lastName:data.lastName,phone:data.phone ,choices:data.choices }})  
         .then(res=>{
-            this.props.navigate("approved", {replace: true});
-           
-        })
-        .catch((err)=>{
-            const condition = false
-            if(condition){
-                let errors = this.state.errors;
-                errors['email'] = 'E-mail is already used';
-            }
-            else{
-            this.props.navigate("/completed/failed", {replace: true});
+            console.log(res);
+            const responseStatus = ('errors' in Object.keys(data)) ? "failed":"success";
+            if(responseStatus=="failed"){
+                this.props.navigate('/completed/failed', {replase: true});
+
+            } else if(responseStatus=='success'){
+            this.props.navigate(`/formation-form/approved`, {replace: true});
             }
         })
         

@@ -12,7 +12,8 @@ function Members({members}) {
     const [state, setState] = useState({
         members: members,
         searchQuery: "",
-        currentMemberIndex:0
+        currentMemberIndex:0,
+        fulltext: 0
     })
 
     const getPagedData = () => {
@@ -52,6 +53,14 @@ function Members({members}) {
         setState(newState);
     }
 
+    const handelFullText = () => {
+        const newState = {...state};
+        newState.fulltext = (state.fulltext === 1) ? 0:1;
+        setState(newState);
+    }
+
+    
+
 
     const currentMember = (getPagedData().totalCount === 0 )? {name : '',
     description : 'Member Not Found',
@@ -70,6 +79,8 @@ function Members({members}) {
     const totalCount = getPagedData().totalCount;
 
     const source = require(`../../assets/membersImages/${image}`);
+
+    const desc = description.substring(0, 200) + ' ...';
     
     return (
         <div className='members' id='members'>
@@ -80,7 +91,7 @@ function Members({members}) {
                 </div>
                 <div className='members__content__text'>
                     <div className='members__content__text__name'>{name}</div>
-                    <div className='members__content__text__description'><div>“</div>{description}</div>
+                    <div className='members__content__text__description'><div>“</div>{(state.fulltext === 0) ? desc : description} <a onClick ={handelFullText} >{(state.fulltext === 0) ? 'more' : 'less'}</a></div>
                     <div className='members__content__text__role-year'>
                         <div className='members__content__text__role-year--role'>{roles[0]}</div>
                         <div className='members__content__text__role-year--year'>{totalCount ? `year ${year}A` : ''}</div>

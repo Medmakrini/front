@@ -90,6 +90,15 @@
         gap: 30px;
 
 
+        .input-box input{
+            width: fit-content;
+        }
+
+        .input-box .danger-alert{
+            width: 160px;
+        }
+
+
         & button{
             background-color: var(--color-bg);
             box-sizing: border-box;

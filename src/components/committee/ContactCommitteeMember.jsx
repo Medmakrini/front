@@ -23,7 +23,7 @@ class ContactCommitteeMember extends Form {
         //call the server
         const {name, template_id, onShowMember, user_id, service_id} = this.props;
         const {mail, message} = this.state.data;
-        sendEmail("Gadz'IT Contact", name, message, template_id, service_id, user_id);
+        sendEmail("Gadz'IT Contact : " + mail, name, message, template_id, service_id, user_id);
         onShowMember();
     }
 

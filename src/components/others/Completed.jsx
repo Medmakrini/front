@@ -9,14 +9,13 @@ function Completed(props) {
     const {success, day, place, hour} = useParams();
     
     let navigate = useNavigate();
-    console.log(success);
     
     return (
         <>
             {success === 'success' &&
             <div className="completed">
                 <img src={valid} />
-                <div>Your application had successfully submited. <br/> be in the {place} at {hour} {day} for your interview</div>
+                <div>Your application had successfully submited. <br/> be in the {place} at {hour} {day} for your interview (the recruiting day will be announced in the club social media) </div>
                 <a onClick={() => navigate('/')}>Home</a>
             </div>
             }

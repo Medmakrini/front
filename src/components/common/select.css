@@ -16,3 +16,14 @@
     color: rgb(241, 81, 81);
 
 }
+
+@media (max-width: 450px) {
+    .select__input{
+        border-width: .5px;
+        width : 250px;
+    }
+
+    .danger-alert{
+        font-size: 12px;
+    }
+}

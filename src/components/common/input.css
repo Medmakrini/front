@@ -1,4 +1,8 @@
-
+.input-box{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
 .input-box input{
     background-color: var(--color-bg);
@@ -10,10 +14,28 @@
     border-width: 1px;
     outline: none;
     color: #FFFFFF;
+    width: 400px;
+
+}
+
+label{
+    width: fit-content;
 }
 
 .danger-alert{
     font-size: 14px;
     color: rgb(241, 81, 81);
+    width: fit-content;
+}
 
+
+@media (max-width: 450px) {
+    .input-box input{
+        border-width: .5px;
+        width : 250px;
+    }
+
+    .danger-alert{
+        font-size: 12px;
+    }
 }

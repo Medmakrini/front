@@ -13,7 +13,9 @@ function Blog(props) {
         <div className='blog'>
             <h1>{title}</h1>
             <h3>{subHeading}</h3>
-            <img src={require(`../assets/blogsImages/${image}`)} />
+            <div className='blog__img'>
+                <img src={require(`../assets/blogsImages/${image}`)} />
+            </div>
             <div className='blog__content'>
                 {content}
             </div>

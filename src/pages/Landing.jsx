@@ -11,6 +11,7 @@ import NavBar from '../components/navBar/NavBar';
 import OurCourses from '../components/ourCourses/OurCourses';
 import Posts from '../components/posts/Posts';
 import 'react-toastify/dist/ReactToastify.css';
+import LoadingRing from '../components/common/LoadingRing';
 
 function Landing({blogs, members}) {
     let new_members = [...members];

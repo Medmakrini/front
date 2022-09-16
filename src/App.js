@@ -10,6 +10,7 @@ import FormationForm from './pages/FormationForm';
 import Approved from './components/others/Approved';
 import BlogsPage from './pages/BlogsPage';
 import Blog from './pages/Blog';
+import Failed from './components/others/Failed';
 
 
 
@@ -22,11 +23,11 @@ function App() {
   return (
     <>
        <Routes>
-        <Route path='/completed/:success/:day?/:place?/:hour?' element={ <Completed />} />
         <Route path='/blogs/:id' element={<Blog />} />
         <Route path='/blogs' element={<BlogsPage blogs={blogs} itemsPerPage={2}/>} />
         <Route path='/join-form' element={<JoinFrom />}/>
-        <Route path='/join-form/approved' element={<Approved message={message} />}/>
+        <Route path='/completed/:success/:day/:place/:hour' element={ <Completed />} />
+        <Route path='/completed/failed' element={ <Failed />} />
         <Route path='/formation-form/approved' element={<Approved message={message} />} />
         <Route path='/formation-form' element={<FormationForm />} />
         <Route path='/' element={<Landing blogs={blogs} members={members} />}/>

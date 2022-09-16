@@ -31,8 +31,9 @@
     transform: translateY(-100px);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     .blur-eclipse{
+        display: none;
         position: absolute;
         width: 75%;
         height: 720px;

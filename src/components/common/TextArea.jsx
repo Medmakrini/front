@@ -21,7 +21,7 @@ class TextArea extends Component {
                   borderColor: '#696969',
                   borderWidth: '1px',
                   color: '#FFFFFF',
-                  outline: 'none'
+                  outline: 'none',
                 };
         return (
 

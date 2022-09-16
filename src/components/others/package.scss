@@ -32,6 +32,7 @@
         @include flex-row;
         gap: 50px;
         width: fit-content;
+        flex-wrap: wrap;
         &__item{
             @include flex-column;
             
