@@ -12,6 +12,8 @@ import { useMutation } from '@apollo/client';
 import { REGISTRATION } from '../graphql/Mutation';
 
 
+const KEY_WORDS = ['gadzit_club_', 'club_info_', 'ensam_info_', 'code_it_'];
+
 
 function withHook(Component) {
     return function WrappedComponent(props) {
@@ -54,18 +56,21 @@ class JoinFrom extends Form {
     
     doSubmit =  async() => {
 
-        const password1=`${this.state.data.lastName}_${Math.floor(Math.random() * 500)}_${this.state.data.firstName}`
-        const username=this.state.data.lastName.split(' ').join('_')+Math.floor(Math.random() * 500)
+        const password1 = `${KEY_WORDS[Math.floor(Math.random()*KEY_WORDS.length)]}${Math.floor(Math.random() * 500)}`
+        const username = `${this.state.data.firstName.split(' ').join('_')}_${Math.floor(Math.random() * 500)}`;
         const loading = 1;
         this.setState({loading});
         await this.props.register({ variables: { email:this.state.data.email , username:username,firstName:this.state.data.firstName ,lastName:this.state.data.lastName,phone:this.state.data.phone ,password1:password1,password2:password1,psw:password1 , cell:this.state.data.cell,day:this.state.data.day,year:this.state.data.year}})  
         .then(res=>{
             const responseStatus = (res.data.register.errors === null) ? "success":"failed";
-            const condition = (res.data.register.errors && res.data.register.errors.email[0].message === 'A user with that email already exists.') ? true: false;
+            const condition = res.data.register.errors ? true: false;
+            console.log(res);
             if(responseStatus=="failed"){
                 if(condition){
                     let errors = this.state.errors;
-                    errors['email'] = 'E-mail is already used.';
+                    for(let key of Object.keys(res.data.register.errors)){
+                        errors[key] = res.data.register.errors[key][0].message;
+                    }
                     const loading = 0;
                     this.setState({errors, loading});
                 }
