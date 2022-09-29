@@ -80,8 +80,8 @@ const members = [
 
     {name: 'AMINE Elhend ',
     roles: ['Chef cellule event'],
-    description: `I'm Amine, engineering student at ENSAM Mèknes, and chef event of Gadz'IT, a coder, cat lover, designer and an old member of the best club ever Gadz'IT .`,
-    image:'amin.jpg',
+    description: `I'm Amine, AKA ZENLEX , engineering student at ENSAM Mèknes, and chef event of Gadz'IT, a coder, cat lover, designer and an old member of the best club ever Gadz'IT .`,
+    image:'aminelhend.jpg',
     commiteMembre: true,
     cellule: {_id : '2', name: 'media'},
     year:  2,
