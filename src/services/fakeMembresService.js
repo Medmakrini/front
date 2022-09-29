@@ -81,7 +81,7 @@ const members = [
     {name: 'AMINE Elhend ',
     roles: ['Chef cellule event'],
     description: `Hi there, i'm a student at ENSAM and im an active member of GADZ'IT club.`,
-    image:'https://i.pinimg.com/originals/32/5e/3d/325e3daa6e50ccb477267f5eea633ce4.jpg',
+    image:'layla.jpeg',
     commiteMembre: true,
     cellule: {_id : '2', name: 'media'},
     year:  4,
